@@ -9,7 +9,7 @@
 当达到10次观看限制时，可自行切换代理以实现继续观看
 
 # 演示地址
-https://91.y2z.top/
+https://91porn.yzyz.ml/
 
 # 用法
 
@@ -17,7 +17,7 @@ https://91.y2z.top/
 
 <img src="https://ws1.sinaimg.cn/large/007452UMly1foya1v9unwj30a40aojri.jpg"/>
 
-2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://91.y2z.top/91.php
+2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://91porn.yzyz.ml/91.php
 
 <img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya2fnqbzj30b70hfq6o.jpg"/>
 
@@ -32,3 +32,16 @@ https://91.y2z.top/
 代理地址来源于https://free-proxy-list.net/
 
 大多数视频都能通过缓存打开。如果遇到未缓存地址，可用代理地址打开，代理可靠性不太高，多刷新几次页面，或多切换代理。
+
+# 配置说明
+
+环境要求<br>
+1.PHP 5.6 以上<br>
+2.支持SQLite数据库<br>
+注意事项<br>
+db文件夹及文件夹中的.db文件需有读写权限，否则数据库无法存取
+
+# 关注我
+
+博客：https://y2z.top
+微博：https://weibo.com/yztop
