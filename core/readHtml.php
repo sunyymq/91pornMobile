@@ -11,8 +11,8 @@ function readHtml($url,$proxyip=""){
 	    'method'=>"GET",
 	    'proxy'=> $proxyip=="" ? "" : 'tcp://'.$proxyip,
 	    'header'=>"Content-Type: text/xml\r\n"."charset=utf-8\r\n"."Accept-language: zh-cn\r\n"."Cookie: foo=bar\r\n",
-	    'float'=>8,
-	    'timeout'=>8
+	    'float'=>4,
+	    'timeout'=>4
 	  )
 	);
 

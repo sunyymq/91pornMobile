@@ -5,6 +5,8 @@ require 'lib/phpQuery.php';
 require 'lib/QueryList.php';
 require 'core/readHtml.php';
 require "lib/Medoo.php";
+include "lib/Snoopy.class.php";
+include "core/myfunction.php";
 
 use Medoo\Medoo;
 use QL\QueryList;
@@ -16,6 +18,7 @@ $db = new medoo([
 
 //echo $_REQUEST["proxy"] ? 'tcp://'.$_REQUEST["proxy"] : '';
 
+//根据地址，获取视频地址
 function getList($url){
 
 	#获取URL
@@ -27,8 +30,9 @@ function getList($url){
 		return $video[0]["Video"];
 	}*/
 
-	$html = readHtml($url,urldecode($_REQUEST["proxyip"]));
-	
+	#$html = readHtml($url,urldecode($_REQUEST["proxyip"]));
+	$html = getHtml($url);
+
 	$rules = array(
     //采集id为one这个元素里面的纯文本内容
     'video' => array('source','src')
@@ -55,6 +59,31 @@ function getList($url){
 //$video = getList();
 
 
+
+function getHtml($url){
+
+    $ip = randIp();
+    $snoopy = new Snoopy;
+
+    #$snoopy->proxy_host = "165.227.104.78";
+    $snoopy->proxy_port = "3128";
+    #$snoopy->_isproxy = true;
+
+    $snoopy->cookies["PHPSESSID"] = 'fsef'; //伪装sessionid
+    #$snoopy->agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"; //伪装浏览器
+    //$snoopy->referer = 'http://www.4wei.cn'; //伪装来源页地址 http_referer
+    $snoopy->rawheaders["Pragma"] = "no-cache"; //cache 的http头信息
+    $snoopy->rawheaders["Accept-language"] = "zh-cn"; //cache 的http头信息
+    $snoopy->rawheaders["Content-Type"] = "text/html; charset=utf-8"; //cache 的http头信息
+    $snoopy->rawheaders["CLIENT-IP"] = $ip; //伪装ip
+    $snoopy->rawheaders["HTTP_X_FORWARDED_FOR"] = $ip; //伪装ip
+    #$snoopy->fetch("http://www.checkip.net");
+    $snoopy->fetch($url);
+
+    return $snoopy->results;
+}
+
+
 #获取URL
 $url = urldecode($_REQUEST["url"]);
 
@@ -67,32 +96,17 @@ $dbResult=$db->select("videos","link",["url" => $viewkey]);
     //print_r($dbResult);
 //$video = '';
 
+//数据在缓存中，直接取
 if($dbResult){
     //global $video;
-	$video = $dbResult[0];
-	$catch=true;
+    $video = $dbResult[0];
+    $catch=true;
     //echo $video;
 }else{
-    //global $video;
-	$video = getList($url);
+    global $video;
+    $video = getList($url);
     //echo "src";
-}
-//print_r($db->select("videos","*"));
-
-function getProxy(){
-
-    $url = "https://free-proxy-list.net/";
-    $html = readHtml($url);
-
-    $rules = array(
-    //采集id为one这个元素里面的纯文本内容
-    'ip' => array('tbody>tr:lt(20)','html',"-td:gt(0) td"),
-    'port' => array('tbody>tr:lt(20)','html',"-td:gt(1) -td:eq(0) td"),
-    'country' => array('tbody>tr:lt(20)','html',"-td:gt(2) -td:lt(1) td"),
-    );
-    $data = QueryList::Query($html,$rules)->data;
-    //print_r($data);
-    return $data;
+    //$video = getVideo($url);
 }
 
 ?>
@@ -127,22 +141,7 @@ function getProxy(){
                     <i></i>获取失败，请刷新或更换代理重试
                 </div>
             </div>
-            <?php $proxyList=getProxy(); ?>
-
-            <form class="ui-form-item ui-form-item-r ui-border-b" method="get" action="91v.php">
-                
-                <input type="hidden" name="title" value="<?php echo($_REQUEST["title"])?>">
-                <input type="hidden" name="url" value="<?php echo($_REQUEST["url"])?>">
-                <div class="ui-select" style="margin:0;margin-right: 120px">
-                    <select name="proxyip">
-                        <option value="">无</option>
-                        <?php foreach ($proxyList as $key => $value) {
-                            echo '<option '. (urldecode($_REQUEST["proxyip"]) == ($value["ip"].':'.$value["port"]) ? "selected" : "") .' value="'.$value["ip"].':'.$value["port"].'">'.$value["ip"].'['.$value["country"].']</option>';
-                        } ?>
-                    </select>
-                </div>
-                <button type="submit" class="ui-border-l">重 试</button>
-            </form>
+            
             <?php } ?>
 
             <p class="demo-desc"><?php echo urldecode($_REQUEST["title"]) ?></p>

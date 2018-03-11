@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 #引入模块
 require 'lib/phpQuery.php';
 require 'lib/QueryList.php';
@@ -16,7 +16,9 @@ $db = new medoo([
 
 function getList($domain="http://www.91porn.com",$page = 1){
 
-	$url = $domain."/video.php?category=rf&page=".$page;
+    $jinghua = $_COOKIE["jinghua"];
+
+	$url = $domain."/video.php?". ($jinghua == 1 ? "category=rf" : "") ."&page=".$page;
 
     //echo $url;
 
@@ -72,12 +74,27 @@ $list = getList($domain,$page);
 		<section id="panel">
     <div class="demo-item">
         <p class="demo-desc">第<b><?php echo $page?></b>页</p>
+
+
         <div class="demo-block">
+            <div class="ui-form ui-border-t">
+                <form action="#">
+                    <div class="ui-form-item ui-form-item-switch ui-border-b">
+                        <p>
+                            只看精华
+                        </p>
+                        <label class="ui-switch">
+                            <input type="checkbox" id="jinghua" checked="">
+                        </label>
+                    </div>
+                </form>
+            </div>
+
             <section class="ui-panel">
                 <ul class="ui-grid-trisect">
                 	<?php
                 	foreach ($list as $key => $value) {  ?>              		
-	                    <li data-href="91v.php?title=<?php echo urlencode($value["title"]) ?>&url=<?php echo urlencode($value["link"]) ?>&proxyip=<?php echo urlencode($_REQUEST["proxyip"]) ?>">
+	                    <li data-href="91v.php?title=<?php echo urlencode($value["title"]) ?>&url=<?php echo urlencode($value["link"]) ?>">
 	                        <div class="ui-border">
 	                            <div class="ui-grid-trisect-img">
 	                                <span style="background-image:url('<?php echo $value["pic"]?>')"></span>
@@ -111,17 +128,35 @@ $list = getList($domain,$page);
 		</section>
                 
 		<?php if($page>1){ ?>
-			<div><a href="91.php?page=<?php echo $page - 1 ?>&domain=<?php echo urlencode($domain) ?>&proxyip=<?php echo ($_REQUEST["proxyip"]) ?>" class="ui-btn-lg">上一页</a><br></div>
+			<div><a href="91.php?page=<?php echo $page - 1 ?>&domain=<?php echo urlencode($domain) ?>" class="ui-btn-lg">上一页</a><br></div>
 		<?php } ?>		
-		<a href="91.php?page=<?php echo $page + 1 ?>&domain=<?php echo urlencode($domain) ?>&proxyip=<?php echo ($_REQUEST["proxyip"]) ?>" class="ui-btn-lg ui-btn-primary">下一页</a>
+		<a href="91.php?page=<?php echo $page + 1 ?>&domain=<?php echo urlencode($domain) ?>" class="ui-btn-lg ui-btn-primary">下一页</a>
             </div>
 
 		</section>
 		<script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 		<script>
 
         $("[data-href]").click(function(){
         	location.href = ($(this).data('href'));
+        });
+
+        $(function(){
+            $("#jinghua").click(function(){
+                $this = $(this);
+
+                if($this.is(":checked")){
+                    $.cookie("jinghua","1");
+                }else{
+                    $.cookie("jinghua","0");
+                }
+                location.reload();
+            });
+
+            if($.cookie("jinghua") == "0"){
+                $("#jinghua").removeAttr("checked");
+            }
         });
         </script>
     </body>
