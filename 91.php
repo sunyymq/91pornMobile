@@ -4,14 +4,21 @@ error_reporting(0);
 require 'lib/phpQuery.php';
 require 'lib/QueryList.php';
 require 'core/readHtml.php';
+require "lib/Medoo.php";
 
+use Medoo\Medoo;
 use QL\QueryList;
+
+$db = new medoo([
+    'database_type' => 'sqlite',
+    'database_file' => 'db/91.db'
+]);
 
 function getList($domain="http://www.91porn.com",$page = 1){
 
 	$url = $domain."/video.php?category=rf&page=".$page;
 
-    echo $url;
+    //echo $url;
 
 	$html = readHtml($url);
 
@@ -75,8 +82,23 @@ $list = getList($domain,$page);
 	                            <div class="ui-grid-trisect-img">
 	                                <span style="background-image:url('<?php echo $value["pic"]?>')"></span>
 	                            </div>
-	                            <div style="height:8%;padding: 2%">
-	                                <h4 class="ui-nowrap-multi"><?php echo $value["title"]?></h4>                                
+	                            <div style="padding: 2%">
+                                    <?php
+                                    //获取viewkey
+                                    $urlarr=parse_url($value["link"]);
+                                    parse_str($urlarr['query'],$parr);
+                                    $viewkey = $parr["viewkey"];
+
+                                    //判断数据库中是否有缓存
+                                    $dbResult=$db->select("videos","link",["url" => $viewkey]);
+                                    ?>
+	                                <h4 class="ui-nowrap-multi" style="height:50px">
+                                    <?php
+                                    if($dbResult){
+                                        echo '<label class="ui-label" style="background-color: #5cb85c;color:white;">已缓存</label>';
+                                    }
+                                     echo $value["title"]
+                                     ?></h4>                                
 	                            </div>
 	                        </div>
 	                    </li>
