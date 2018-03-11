@@ -18,7 +18,7 @@ function getList($domain="http://www.91porn.com",$page = 1){
 
     $jinghua = $_COOKIE["jinghua"];
 
-	$url = $domain."/video.php?". ($jinghua == 1 ? "category=rf" : "") ."&page=".$page;
+	$url = $domain."/video.php?". ($jinghua == 0 ? "" : "category=rf") ."&page=".$page;
 
     //echo $url;
 

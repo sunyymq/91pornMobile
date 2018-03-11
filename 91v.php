@@ -138,7 +138,7 @@ if($dbResult){
             <?php if(!$video){ ?>
             <div class="ui-tooltips ui-tooltips-warn">
                 <div class="ui-tooltips-cnt ui-border-b">
-                    <i></i>获取失败，请刷新或更换代理重试
+                    <i></i>获取失败，请刷新重试
                 </div>
             </div>
             
