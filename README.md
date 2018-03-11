@@ -6,7 +6,9 @@
 
 项目基于PHP,自动获取91视频，并解析真实地址
 
-当达到10次观看限制时，可自行切换代理以实现继续观看
+<s>当达到10次观看限制时，可自行切换代理以实现继续观看</s>
+
+通过伪装客户端IP，绕过游客10次观看限制
 
 # 演示地址
 https://91porn.yzyz.ml/
@@ -25,23 +27,30 @@ https://91porn.yzyz.ml/
 
 <img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya3q7nn8j30b60bf763.jpg"/>
 
-如无法正常播放，可尝试切换代理地址
+如无法正常播放，<s>可尝试切换代理地址</s>直接刷新页面即可。
 
 <img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya70ft7qj30ay0asweq.jpg"/>
 
-代理地址来源于https://free-proxy-list.net/
+<s>代理地址来源于https://free-proxy-list.net/
 
-大多数视频都能通过缓存打开。如果遇到未缓存地址，可用代理地址打开，代理可靠性不太高，多刷新几次页面，或多切换代理。
+大多数视频都能通过缓存打开。如果遇到未缓存地址，可用代理地址打开，代理可靠性不太高，多刷新几次页面，或多切换代理。</s>
 
 # 配置说明
 
-环境要求<br>
-1.PHP 5.6 以上<br>
-2.支持SQLite数据库<br>
-注意事项<br>
-db文件夹及文件夹中的.db文件需有读写权限，否则数据库无法存取
+<b>环境要求</b>
+<ol>
+<li>PHP 5.6 以上</li>
+<li>支持SQLite数据库</li>
+</ol>
+<b>注意事项</b>
+<ul>
+<li>服务器要有访问外网权限</li>
+<li>db文件夹及文件夹中的.db文件需有读写权限，否则数据库无法存取</li>
+</ul>
 
 # 关注我
 
-博客：https://y2z.top
-微博：https://weibo.com/yztop
+<ul>
+<li>博客：https://y2z.top</li>
+<li>微博：https://weibo.com/yztop</li>
+</ul>
