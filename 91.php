@@ -154,7 +154,7 @@ $list = getList($domain,$page);
                 location.reload();
             });
 
-            if($.cookie("jinghua") == "0"){
+            if($.cookie("jinghua") == "2"){
                 $("#jinghua").removeAttr("checked");
             }
         });
