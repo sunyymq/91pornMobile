@@ -18,7 +18,7 @@ function getList($domain="http://www.91porn.com",$page = 1){
 
     $jinghua = $_COOKIE["jinghua"];
 
-	$url = $domain."/video.php?". ($jinghua == 0 ? "" : "category=rf") ."&page=".$page;
+	$url = $domain."/video.php?". ($jinghua == 2 ? "" : "category=rf") ."&page=".$page;
 
     //echo $url;
 
@@ -149,7 +149,7 @@ $list = getList($domain,$page);
                 if($this.is(":checked")){
                     $.cookie("jinghua","1");
                 }else{
-                    $.cookie("jinghua","0");
+                    $.cookie("jinghua","2");
                 }
                 location.reload();
             });
