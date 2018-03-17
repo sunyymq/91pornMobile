@@ -11,7 +11,7 @@
 通过伪装客户端IP，绕过游客10次观看限制
 
 # 演示地址
-https://91porn.yzyz.ml/
+https://9.yzyz.ml/
 
 # 用法
 
@@ -19,7 +19,7 @@ https://91porn.yzyz.ml/
 
 <img src="https://ws1.sinaimg.cn/large/007452UMly1foya1v9unwj30a40aojri.jpg"/>
 
-2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://91porn.yzyz.ml/91.php
+2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://9.yzyz.ml/91.php
 
 <img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya2fnqbzj30b70hfq6o.jpg"/>
 
@@ -29,7 +29,7 @@ https://91porn.yzyz.ml/
 
 如无法正常播放，<s>可尝试切换代理地址</s>直接刷新页面即可。
 
-<img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya70ft7qj30ay0asweq.jpg"/>
+4.下载视频，播放器右下角点击下载按钮即可下载
 
 <s>代理地址来源于https://free-proxy-list.net/
 
