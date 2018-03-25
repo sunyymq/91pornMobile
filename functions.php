@@ -3,17 +3,9 @@
 #引入模块
 require 'lib/phpQuery.php';
 require 'lib/QueryList.php';
-require 'core/readHtml.php';
-require "lib/Medoo.php";
 include "lib/Snoopy.class.php";
 
-use Medoo\Medoo;
 use QL\QueryList;
-
-$db = new medoo([
-    'database_type' => 'sqlite',
-    'database_file' => 'db/91.db'
-]);
 
 function getList($domain="http://www.91porn.com",$page = 1){
 
@@ -23,7 +15,7 @@ function getList($domain="http://www.91porn.com",$page = 1){
 
     //echo $url;
 
-	$html = readHtml($url);
+	$html = getHtml($url);
 
 	//echo $html;
 	
