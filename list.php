@@ -12,7 +12,7 @@ if($domain == ''){
     $domain="http://www.91porn.com";
 }
 setcookie('91url',$domain);
-echo $domain;
+
 $page=1;
 if($_REQUEST["page"]){
 	$page = $_REQUEST["page"];
