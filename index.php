@@ -1,10 +1,7 @@
 <?php
 error_reporting(0);
-#引入模块
-require 'lib/phpQuery.php';
-require 'lib/QueryList.php';
-
-use QL\QueryList;
+$url91 = ($_COOKIE["91url"] == '' || stripos($_COOKIE["91url"],'http://') == 0) ? 'http://www.91porn.com' : $_COOKIE["91url"];
+//$page91 = $_COOKIE["91page"] == '' ? 1 : $_COOKIE["91page"];
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +24,12 @@ use QL\QueryList;
 		<section id="panel">
     <div class="demo-item">
         <p class="demo-desc">设置</p>
-        <form action="91.php" method="get">
+        <form action="list.php" method="get">
                     <div class="ui-form-item ui-border-b">
                         <label>
                             91地址
                         </label>
-                        <input type="text" name="domain" placeholder="输入地址，如：http://www.91porn.com" value="http://www.91porn.com">
+                        <input type="text" name="domain" placeholder="输入地址，如：http://www.91porn.com" value="<?php echo $url91;?>">
                         
                     </div>
                     <div class="ui-form-item ui-border-b">
