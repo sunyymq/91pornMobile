@@ -15,7 +15,7 @@ https://9.yzyz.ml/
 
 <img src="https://ws1.sinaimg.cn/large/007452UMly1foya1v9unwj30a40aojri.jpg"/>
 
-2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://9.yzyz.ml/91.php
+2.点击确认进入列表页，如无需设置代理页码等，可直接打开https://9.yzyz.ml/list.php
 
 <img src="https://ws1.sinaimg.cn/mw690/007452UMly1foya2fnqbzj30b70hfq6o.jpg"/>
 
@@ -33,11 +33,12 @@ https://9.yzyz.ml/
 <ol>
 <li>PHP 5.6 以上</li>
 <li>服务器要有访问外网权限</li>
+  <li>PHP7.2尝试报错尝试<a target"_blank" href="https://phperzh.com/articles/5726">自定义each函数</a></li>
 </ol>
 
 # 关注我
 
 <ul>
-<li>博客：https://y2z.top</li>
+<li>博客：https://yantuz.cn</li>
 <li>微博：https://weibo.com/yztop</li>
 </ul>
