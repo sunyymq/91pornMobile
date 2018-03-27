@@ -24,7 +24,7 @@ $video = getVideo($url);
         	<?php if($video['video']){ ?>
         	<div class="ui-tooltips ui-tooltips-guide">
                 <div class="ui-tooltips-cnt ui-tooltips-cnt-link ui-border-b">
-                    <i class="ui-icon-talk"></i>加载成功
+                    <i class="ui-icon-talk"></i>加载成功，如播放失败刷新页面获取新地址
                 </div>
             </div>
             <?php } else{ ?>
