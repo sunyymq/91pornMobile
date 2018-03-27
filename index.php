@@ -53,7 +53,7 @@ $url91 = ($_COOKIE["91url"] == '' || stripos($_COOKIE["91url"],'http://') == 0) 
         <p class="demo-desc">关于</p>
         <div class="ui-whitespace">
                 <p class="ui-txt-default">本站开源：源码在<a target="_blank" href="https://github.com/yhf7952/91pornMobile">GitHub</a></p>
-                <p class="ui-txt-default">更多新鲜好玩的欢迎关注我的博客：<a href="https://y2z.top/">岩兔站</a> 或者<a target="_blank" href="https://weibo.com/yztop">新浪微博</a></p>
+                <p class="ui-txt-default">更多新鲜好玩的欢迎关注我的博客：<a href="https://yantuz.cn/">岩兔站</a> 或者<a target="_blank" href="https://weibo.com/yztop">新浪微博</a></p>
             </div>
 		</section>
                 
